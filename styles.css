@@ -492,3 +492,47 @@ h2 {
   }
 }
 
+/* Modal footer container */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Save button */
+#save-task {
+  flex: 1;
+  background-color: #635fc7;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#save-task:hover {
+  background-color: #544fc2;
+}
+
+/* Delete button */
+#delete-task {
+  flex: 1;
+  background-color: #ea5555;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#delete-task:hover {
+  background-color: #d64242;
+}
+
+/* Hide class */
+.hidden {
+  display: none !important;
+}
