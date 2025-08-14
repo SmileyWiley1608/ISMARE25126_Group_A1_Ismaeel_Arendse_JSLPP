@@ -832,3 +832,303 @@ input:checked + .slider:before {
   width: 20px;
   height: 20px;
 }
+/* =========================
+   Sidebar slide + buttons
+   (append at end of file)
+========================= */
+
+/* Base slide behavior */
+.side-bar {
+  will-change: transform;
+  transform: translateX(0);
+  transition: transform 300ms ease;
+}
+
+/* When hidden: slide out to the left */
+body.sidebar-hidden .side-bar {
+  transform: translateX(-100%);
+}
+
+/* Floating "Show Sidebar" button (visible only when hidden) */
+.show-sidebar-btn {
+  position: fixed;
+  left: 10;
+  top: 50%;
+  transform: translate(-50%, -50%); /* half off-screen like Figma */
+  background: #635fc7;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  padding: 12px 14px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(54, 78, 126, 0.25);
+  cursor: pointer;
+  z-index: 9999;
+}
+body.sidebar-hidden .show-sidebar-btn { display: flex; }
+.show-sidebar-btn img { width: 18px; height: 18px; }
+
+/* Hide Sidebar button (inside sidebar, under theme toggle) */
+.hide-sidebar-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 700;
+  color: #828fa3;
+  background: transparent;
+  cursor: pointer;
+}
+.hide-sidebar-btn img { width: 16px; height: 16px; }
+
+/* Sidebar footer container keeps both controls at bottom */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Theme toggle visual (already present, ensuring final look) */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+}
+body.dark-theme .theme-toggle { background-color: #20212C; }
+
+.switch { width: 46px; height: 24px; }
+.slider { background-color: #635FC7; border-radius: 50px; }
+.slider:before {
+  height: 16px; width: 16px; left: 4px; bottom: 4px;
+}
+input:checked + .slider { background-color: white; }
+input:checked + .slider:before { transform: translateX(22px); background-color: #635FC7; }
+
+/* Dark theme button treatments */
+body.dark-theme .hide-sidebar-btn { color: #fff; }
+body.dark-theme .show-sidebar-btn { background: #635fc7; }
+
+/* ===== Mobile / Tablet overrides ===== */
+@media (max-width: 1023px) {
+  /* Force sidebar to exist (overrides earlier display:none rule) */
+  .side-bar {
+    display: flex !important;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    z-index: 9998;
+  }
+  /* Default to hidden on mobile for cleaner layout */
+  body:not(.sidebar-shown) .side-bar {
+    transform: translateX(-100%);
+  }
+  /* Show button visible when sidebar is hidden */
+  body:not(.sidebar-shown) .show-sidebar-btn { display: flex; }
+  /* When opened on mobile, slide in */
+  body.sidebar-shown .side-bar {
+    transform: translateX(0);
+  }
+}
+
+/* Header + content spacing in dark mode */
+body.dark-theme header {
+  background-color: #2B2C37;
+  color: #fff;
+  border-bottom: 1px solid #3E3F4E;
+}
+
+/* Kanban cards in dark */
+body.dark-theme .task-div {
+  background-color: #2B2C37;
+  color: #fff;
+}
+
+/* =========================
+   Sidebar Hide/Show Buttons
+   (Figma Style)
+========================= */
+
+/* Hide Sidebar button (inside footer) */
+.hide-sidebar-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding-left: 20px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #828fa3;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1);
+  color: #635fc7;
+}
+
+/* Floating Show Sidebar button */
+.show-sidebar-btn {
+  position: fixed;
+  left: 20;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #635fc7;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  padding: 14px 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(54, 78, 126, 0.25);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.show-sidebar-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.show-sidebar-btn:hover {
+  background-color: #5248c8;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Dark mode adjustments */
+body.dark-theme .hide-sidebar-btn {
+  color: #fff;
+}
+
+body.dark-theme .hide-sidebar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+body.dark-theme .show-sidebar-btn {
+  background: #635fc7;
+}
+
+body.dark-theme .show-sidebar-btn:hover {
+  background: #5248c8;
+}
+/* === Theme Toggle Above Hide Sidebar === */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme toggle (purple background, original sun/moon colors) */
+.theme-toggle {
+  background-color: #635fc7; /* Purple */
+  padding: 10px 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+body.dark-theme .theme-toggle {
+  background-color: #635fc7; /* Keep purple in dark mode */
+}
+
+/* Keep original sun & moon icon colors */
+#light-icon,
+#dark-icon {
+  width: 20px;
+  height: 20px;
+  filter: none; /* No color inversion */
+}
+
+/* Switch inside toggle */
+.switch {
+  width: 46px;
+  height: 24px;
+}
+
+.slider {
+  background-color: white; /* White track */
+  border-radius: 50px;
+}
+
+.slider:before {
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #635fc7; /* Purple knob */
+}
+
+input:checked + .slider {
+  background-color: white;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+  background-color: #635fc7;
+}
+
+/* Hide sidebar button */
+.hide-sidebar-btn {
+  background-color: #635fc7; /* Purple */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Hide sidebar button icon (use your SVG) */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1); /* Make icon white */
+}
+
+/* Show sidebar button purple style */
+.show-sidebar-btn {
+  background-color: #635fc7;
+}
+
+.show-sidebar-btn img {
+  filter: brightness(0) invert();
+}
+/* === Hide Sidebar Button - Keep Original Icon Colors === */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+}
+
