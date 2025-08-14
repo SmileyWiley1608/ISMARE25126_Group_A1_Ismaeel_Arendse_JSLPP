@@ -641,17 +641,17 @@ body.dark-theme #side-logo-div {
 }
 /* ===== Theme Toggle Figma Style ===== */
 .theme-toggle {
+  background-color: #f4f7fd; /* Light grey in light mode */
+  padding: 12px 20px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: var(--secondary-color);
-  padding: 12px;
-  border-radius: 8px;
 }
 
 body.dark-theme .theme-toggle {
-  background-color: #20212C;
+  background-color: #635fc7; /* Purple in dark mode */
 }
 
 /* Switch container */
@@ -725,17 +725,17 @@ input:checked + .slider:before {
 
 /* Theme toggle styling */
 .theme-toggle {
+  background-color: #f4f7fd; /* Light grey in light mode */
+  padding: 12px 20px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: var(--secondary-color);
-  padding: 12px;
-  border-radius: 8px;
 }
 
 body.dark-theme .theme-toggle {
-  background-color: #20212C;
+  background-color: #635fc7; /* Purple in dark mode */
 }
 
 /* Switch container */
@@ -789,14 +789,17 @@ input:checked + .slider:before {
 }
 /* === Theme Toggle: Match Figma === */
 .theme-toggle {
-  gap: 16px; /* more space between icons and switch */
+  background-color: #f4f7fd; /* Light grey in light mode */
   padding: 12px 20px;
   border-radius: 8px;
-  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 body.dark-theme .theme-toggle {
-  background-color: #635FC7;
+  background-color: #635fc7; /* Purple in dark mode */
 }
 
 /* Switch sizing */
@@ -870,20 +873,49 @@ body.sidebar-hidden .show-sidebar-btn { display: flex; }
 .show-sidebar-btn img { width: 18px; height: 18px; }
 
 /* Hide Sidebar button (inside sidebar, under theme toggle) */
+
+/* Hide Sidebar button */
 .hide-sidebar-btn {
-  width: 100%;
-  height: 48px;
+  background-color: #f4f7fd; /* Light grey in light mode */
+  color: #828fa3; /* Light gray text */
   border: none;
-  border-radius: 0 100px 100px 0;
+  border-radius: 0 100px 100px 0; /* Pill shape */
+  height: 48px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 8px;
   font-weight: 700;
-  color: #828fa3;
-  background: transparent;
+  font-size: 0.875rem;
   cursor: pointer;
+  padding-left: 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1); /* Purple tint hover in light mode */
+  color: #635fc7;
+}
+
+/* Icon */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: none; /* Keep original colors */
+}
+
+/* Dark mode adjustments */
+body.dark-theme .hide-sidebar-btn {
+  background-color: #635fc7; /* Purple in dark mode */
+  color: #fff;
+}
+
+body.dark-theme .hide-sidebar-btn:hover {
+  background-color: #5248c8; /* Darker purple on hover */
+  color: #fff;
+}
+
 .hide-sidebar-btn img { width: 16px; height: 16px; }
 
 /* Sidebar footer container keeps both controls at bottom */
@@ -897,15 +929,18 @@ body.sidebar-hidden .show-sidebar-btn { display: flex; }
 
 /* Theme toggle visual (already present, ensuring final look) */
 .theme-toggle {
+  background-color: #f4f7fd; /* Light grey in light mode */
+  padding: 12px 20px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  background-color: var(--secondary-color);
+  gap: 12px;
 }
-body.dark-theme .theme-toggle { background-color: #20212C; }
+
+body.dark-theme .theme-toggle {
+  background-color: #635fc7; /* Purple in dark mode */
+}
 
 .switch { width: 46px; height: 24px; }
 .slider { background-color: #635FC7; border-radius: 50px; }
@@ -916,7 +951,49 @@ input:checked + .slider { background-color: white; }
 input:checked + .slider:before { transform: translateX(22px); background-color: #635FC7; }
 
 /* Dark theme button treatments */
-body.dark-theme .hide-sidebar-btn { color: #fff; }
+body.dark-theme 
+/* Hide Sidebar button */
+.hide-sidebar-btn {
+  background-color: #f4f7fd; /* Light grey in light mode */
+  color: #828fa3; /* Light gray text */
+  border: none;
+  border-radius: 0 100px 100px 0; /* Pill shape */
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding-left: 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1); /* Purple tint hover in light mode */
+  color: #635fc7;
+}
+
+/* Icon */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: none; /* Keep original colors */
+}
+
+/* Dark mode adjustments */
+body.dark-theme .hide-sidebar-btn {
+  background-color: #635fc7; /* Purple in dark mode */
+  color: #fff;
+}
+
+body.dark-theme .hide-sidebar-btn:hover {
+  background-color: #5248c8; /* Darker purple on hover */
+  color: #fff;
+}
+
 body.dark-theme .show-sidebar-btn { background: #635fc7; }
 
 /* ===== Mobile / Tablet overrides ===== */
@@ -960,23 +1037,49 @@ body.dark-theme .task-div {
 ========================= */
 
 /* Hide Sidebar button (inside footer) */
+
+/* Hide Sidebar button */
 .hide-sidebar-btn {
-  width: 100%;
-  height: 48px;
+  background-color: #f4f7fd; /* Light grey in light mode */
+  color: #828fa3; /* Light gray text */
   border: none;
-  border-radius: 0 100px 100px 0;
+  border-radius: 0 100px 100px 0; /* Pill shape */
+  height: 48px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
-  padding-left: 20px;
+  gap: 8px;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #828fa3;
-  background: transparent;
   cursor: pointer;
+  padding-left: 20px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1); /* Purple tint hover in light mode */
+  color: #635fc7;
+}
+
+/* Icon */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: none; /* Keep original colors */
+}
+
+/* Dark mode adjustments */
+body.dark-theme .hide-sidebar-btn {
+  background-color: #635fc7; /* Purple in dark mode */
+  color: #fff;
+}
+
+body.dark-theme .hide-sidebar-btn:hover {
+  background-color: #5248c8; /* Darker purple on hover */
+  color: #fff;
+}
+
 
 .hide-sidebar-btn img {
   width: 16px;
@@ -1018,14 +1121,49 @@ body.dark-theme .task-div {
 }
 
 /* Dark mode adjustments */
+body.dark-theme 
+/* Hide Sidebar button */
+.hide-sidebar-btn {
+  background-color: #f4f7fd; /* Light grey in light mode */
+  color: #828fa3; /* Light gray text */
+  border: none;
+  border-radius: 0 100px 100px 0; /* Pill shape */
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding-left: 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1); /* Purple tint hover in light mode */
+  color: #635fc7;
+}
+
+/* Icon */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: none; /* Keep original colors */
+}
+
+/* Dark mode adjustments */
 body.dark-theme .hide-sidebar-btn {
+  background-color: #635fc7; /* Purple in dark mode */
   color: #fff;
 }
 
 body.dark-theme .hide-sidebar-btn:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #5248c8; /* Darker purple on hover */
   color: #fff;
 }
+
 
 body.dark-theme .show-sidebar-btn {
   background: #635fc7;
@@ -1046,8 +1184,8 @@ body.dark-theme .show-sidebar-btn:hover {
 
 /* Theme toggle (purple background, original sun/moon colors) */
 .theme-toggle {
-  background-color: #635fc7; /* Purple */
-  padding: 10px 50px;
+  background-color: #f4f7fd; /* Light grey in light mode */
+  padding: 12px 20px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1056,7 +1194,7 @@ body.dark-theme .show-sidebar-btn:hover {
 }
 
 body.dark-theme .theme-toggle {
-  background-color: #635fc7; /* Keep purple in dark mode */
+  background-color: #635fc7; /* Purple in dark mode */
 }
 
 /* Keep original sun & moon icon colors */
@@ -1096,26 +1234,55 @@ input:checked + .slider:before {
 }
 
 /* Hide sidebar button */
+
+/* Hide Sidebar button */
 .hide-sidebar-btn {
-  background-color: #635fc7; /* Purple */
-  color: white;
+  background-color: #f4f7fd; /* Light grey in light mode */
+  color: #828fa3; /* Light gray text */
   border: none;
-  border-radius: 8px;
+  border-radius: 0 100px 100px 0; /* Pill shape */
   height: 48px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
   font-weight: 700;
+  font-size: 0.875rem;
   cursor: pointer;
+  padding-left: 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.hide-sidebar-btn:hover {
+  background-color: rgba(99, 95, 199, 0.1); /* Purple tint hover in light mode */
+  color: #635fc7;
+}
+
+/* Icon */
+.hide-sidebar-btn img {
+  width: 16px;
+  height: 16px;
+  filter: none; /* Keep original colors */
+}
+
+/* Dark mode adjustments */
+body.dark-theme .hide-sidebar-btn {
+  background-color: #635fc7; /* Purple in dark mode */
+  color: #fff;
+}
+
+body.dark-theme .hide-sidebar-btn:hover {
+  background-color: #5248c8; /* Darker purple on hover */
+  color: #fff;
+}
+
 
 /* Hide sidebar button icon (use your SVG) */
 .hide-sidebar-btn img {
   width: 16px;
   height: 16px;
-  filter: brightness(0) invert(1); /* Make icon white */
+  filter: none; /* Make icon white */
 }
 
 /* Show sidebar button purple style */
@@ -1124,11 +1291,18 @@ input:checked + .slider:before {
 }
 
 .show-sidebar-btn img {
-  filter: brightness(0) invert();
+  filter: none;
 }
 /* === Hide Sidebar Button - Keep Original Icon Colors === */
 .hide-sidebar-btn img {
   width: 16px;
   height: 16px;
+}
+
+
+
+/* Light mode toggle slider track */
+.theme-toggle .slider {
+  background-color: #bbb; /* Darker grey for visibility in light mode */
 }
 
