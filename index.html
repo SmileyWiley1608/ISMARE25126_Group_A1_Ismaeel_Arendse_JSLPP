@@ -11,7 +11,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/favicon.svg"
+      href="assets/favicon.svg"
     />
     <script defer src="./scripts.js"></script>
     <title>Kanban Task Management</title>
@@ -21,37 +21,57 @@
     <!-- Navigation Sidebar -->
     <nav class="side-bar" id="side-bar-div">
       <div id="side-logo-div">
-        <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
+        <img id="app-logo" src="assets/logo-light.svg" alt="logo" />
       </div>
+
       <div class="boards-nav-links-div" id="boards-nav-links-div">
         <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
         <button class="board-btn" id="launchCareerBtn">Launch Career</button>
       </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="theme-toggle">
+          <img src="assets/icon-light-theme.svg" alt="Light Mode" id="light-icon" />
+          <label class="switch">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider"></span>
+          </label>
+          <img src="assets/icon-dark-theme.svg" alt="Dark Mode" id="dark-icon" />
+        </div>
+
+        <button class="hide-sidebar-btn" id="hide-sidebar-btn">
+          <img src="assets/icon-hide-sidebar.svg" alt="Hide Sidebar" />
+          Hide Sidebar
+        </button>
+      </div>
     </nav>
+
+    <!-- Floating Show Sidebar Button -->
+    <button class="show-sidebar-btn" id="show-sidebar-btn">
+      <img src="assets/icon-show-sidebar.svg" alt="Show Sidebar" />
+    </button>
 
     <!-- Main Layout -->
     <div id="layout">
+      <!-- Header -->
       <header>
         <div class="header-name-div">
           <img
-            src="./assets/favicon.svg"
+            src="assets/favicon.svg"
             alt="logo-mobile"
             class="logo-mobile"
+            id="mobile-theme-toggle"
           />
           <h2 class="header-board-name" id="header-board-name">
             Launch Career
           </h2>
         </div>
-
-        <!-- Add Task button -->
-        <button id="add-task-btn">
-          <span class="btn-text">Add Task</span>
-        </button>
+        <button id="add-task-btn"><span class="btn-text">Add Task</span></button>
       </header>
 
       <div class="container">
         <main class="card-column-main">
-
           <!-- TODO Column -->
           <div class="column-div" data-status="todo">
             <div id="todo-head-div" class="column-head-div">
@@ -78,12 +98,11 @@
             </div>
             <div class="tasks-container" id="done-tasks"></div>
           </div>
-
         </main>
       </div>
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Modal -->
     <div id="task-modal" class="modal hidden">
       <div class="modal-content">
         <span id="close-modal" class="close-button">&times;</span>
@@ -102,7 +121,10 @@
           <option value="done">Done</option>
         </select>
 
-        <button id="save-task">Save</button>
+        <div class="modal-footer">
+          <button id="save-task">Save Changes</button>
+          <button id="delete-task" class="hidden">Delete Task</button>
+        </div>
       </div>
     </div>
   </body>
