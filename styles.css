@@ -57,7 +57,6 @@ body {
   font-size: 1.25rem;
 }
 
-/* Optional: remove extra position rules */
 @media screen and (min-width: 577px) {
   #add-task-btn {
     position: static;
@@ -837,7 +836,6 @@ input:checked + .slider:before {
 }
 /* =========================
    Sidebar slide + buttons
-   (append at end of file)
 ========================= */
 
 /* Base slide behavior */
@@ -871,8 +869,6 @@ body.sidebar-hidden .side-bar {
 }
 body.sidebar-hidden .show-sidebar-btn { display: flex; }
 .show-sidebar-btn img { width: 18px; height: 18px; }
-
-/* Hide Sidebar button (inside sidebar, under theme toggle) */
 
 /* Hide Sidebar button */
 .hide-sidebar-btn {
@@ -1030,13 +1026,6 @@ body.dark-theme .task-div {
   background-color: #2B2C37;
   color: #fff;
 }
-
-/* =========================
-   Sidebar Hide/Show Buttons
-   (Figma Style)
-========================= */
-
-/* Hide Sidebar button (inside footer) */
 
 /* Hide Sidebar button */
 .hide-sidebar-btn {
@@ -1233,8 +1222,6 @@ input:checked + .slider:before {
   background-color: #635fc7;
 }
 
-/* Hide sidebar button */
-
 /* Hide Sidebar button */
 .hide-sidebar-btn {
   background-color: #f4f7fd; /* Light grey in light mode */
@@ -1278,7 +1265,7 @@ body.dark-theme .hide-sidebar-btn:hover {
 }
 
 
-/* Hide sidebar button icon (use your SVG) */
+/* Hide sidebar button icon */
 .hide-sidebar-btn img {
   width: 16px;
   height: 16px;
